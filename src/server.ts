@@ -1,11 +1,9 @@
 import Fastify from 'fastify'
+import playerRoutes from './routes/playerRoutes.js'
 
 const server = Fastify()
 
-server.get("/", async (req, res) => {
-	res.type("application/json").code(200)
-	return {hello: "world"}
-})
+server.register(playerRoutes)
 
 const start = async () => {
 	try {
