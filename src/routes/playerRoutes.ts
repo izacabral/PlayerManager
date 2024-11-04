@@ -1,32 +1,31 @@
-import { FastifyInstance } from "fastify";
+import { FastifyInstance } from 'fastify';
 
-async function playerRoutes (fastify, options) {
-	fastify.get("/players", async (req, res) => {
-		return {
-			message: "hello from get"
-		  };
-	})
+async function playerRoutes(fastify, options) {
+  fastify.get('/players', async (req, res) => {
+    return {
+      message: 'hello from get',
+    };
+  });
 
-	fastify.post("/players", async (req, res) => {
-		return {
-			message: "hello from post"
-		  };
-	})
+  fastify.post('/players', async (req, res) => {
+    return {
+      message: 'hello from post',
+    };
+  });
 
-	fastify.put("/players/:id", (req, res) => {
-		const playerId = req.params.id;
-		return {
-		  message: `hello from put ${playerId}`
-		};
-	})
+  fastify.put('/players/:id', (req, res) => {
+    const playerId = req.params.id;
+    return {
+      message: `hello from put ${playerId}`,
+    };
+  });
 
-	fastify.delete("/players/:id", (req, res) => {
-		const playerId = req.params.id;
-		return {
-		  message: `hello from delete ${playerId}`
-		};
-	})
-
+  fastify.delete('/players/:id', (req, res) => {
+    const playerId = req.params.id;
+    return {
+      message: `hello from delete ${playerId}`,
+    };
+  });
 }
 
-export default playerRoutes
+export default playerRoutes;
