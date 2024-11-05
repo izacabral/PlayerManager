@@ -14,7 +14,7 @@ model Player {
   createdAt DateTime @default(now())
 
   Skills   Skills @relation(fields: [skillsId], references: [id])
-  skillsId String
+  skillsId String @unique
 }
 
 model Skills {
@@ -23,5 +23,5 @@ model Skills {
   speed    Int
   driblle  Int?
 
-  player Player[]
+  player Player?
 }
