@@ -12,4 +12,16 @@ model Player {
   name      String
   nickname  String?
   createdAt DateTime @default(now())
+
+  Skills   Skills @relation(fields: [skillsId], references: [id])
+  skillsId String
+}
+
+model Skills {
+  id       String @id @default(uuid())
+  strength Int
+  speed    Int
+  driblle  Int?
+
+  player Player[]
 }
