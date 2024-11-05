@@ -55,6 +55,9 @@ async function playerRoutes(server: FastifyInstance) {
       where: {
         id,
       },
+      include: {
+        skills: true
+      }
     });
 
     return player;
@@ -97,13 +100,12 @@ async function playerRoutes(server: FastifyInstance) {
         name,
         nickname,
         skills: {
-          create: {
-            strength: skills.strength,
-            speed: skills.speed,
-            driblle: skills.driblle,
-          }
+          create: skills,
         }
       },
+      include: {
+        skills: true
+      }
     });
 
     return player;
