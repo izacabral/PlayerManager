@@ -1,17 +1,17 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify';
 import { playerSchema, playerIdSchema } from '../schemas/playerSchema';
-import prisma from '../lib/prisma'
+import prisma from '../lib/prisma';
 
 async function playerRoutes(server: FastifyInstance) {
   //listar - paginação - busca por nome e apelido - retornar: id, nome, apelido, data de criação
   server.get('/players', async (req: FastifyRequest, res: FastifyReply) => {
     const players = await prisma.player.findMany({
-      select:{
+      select: {
         id: true,
         name: true,
         nickname: true,
         createdAt: true,
-      }
+      },
     });
 
     return players;
@@ -24,8 +24,8 @@ async function playerRoutes(server: FastifyInstance) {
     const player = await prisma.player.findUniqueOrThrow({
       where: {
         id,
-      }
-    })
+      },
+    });
 
     return player;
   });
@@ -38,8 +38,8 @@ async function playerRoutes(server: FastifyInstance) {
       data: {
         name,
         nickname,
-      }
-    })
+      },
+    });
 
     return player;
   });
@@ -56,8 +56,8 @@ async function playerRoutes(server: FastifyInstance) {
       data: {
         name,
         nickname,
-      }
-    })
+      },
+    });
 
     return player;
   });
@@ -71,10 +71,10 @@ async function playerRoutes(server: FastifyInstance) {
       await prisma.player.delete({
         where: {
           id,
-        }
-      })
-
-  });
+        },
+      });
+    },
+  );
 }
 
 export default playerRoutes;
