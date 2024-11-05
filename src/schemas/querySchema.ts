@@ -5,4 +5,3 @@ export const querySchema = z.object({
   perPage: z.coerce.number().default(10),
   search: z.string().optional(),
 });
-

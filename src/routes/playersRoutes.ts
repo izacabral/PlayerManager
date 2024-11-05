@@ -9,16 +9,21 @@ async function playerRoutes(server: FastifyInstance) {
   server.get('/players', async (req: FastifyRequest, res: FastifyReply) => {
     const { page, perPage, search } = querySchema.parse(req.query);
 
-    const skip = (page -1) * perPage;
+    const skip = (page - 1) * perPage;
 
     const where = search
       ? {
           OR: [
-            { name: { contains: search, mode: Prisma.QueryMode.insensitive }},
-            { nickname: { contains: search, mode: Prisma.QueryMode.insensitive }},
+            { name: { contains: search, mode: Prisma.QueryMode.insensitive } },
+            {
+              nickname: {
+                contains: search,
+                mode: Prisma.QueryMode.insensitive,
+              },
+            },
           ],
-      }
-    : {};
+        }
+      : {};
 
     const players = await prisma.player.findMany({
       where,
@@ -30,10 +35,10 @@ async function playerRoutes(server: FastifyInstance) {
       },
       skip,
       take: perPage + 1,
-      orderBy: { createdAt: 'desc'}
+      orderBy: { createdAt: 'desc' },
     });
 
-    const totalListed = players.length
+    const totalListed = players.length;
     const hasNexPage = totalListed > perPage;
 
     return {
@@ -43,8 +48,8 @@ async function playerRoutes(server: FastifyInstance) {
         perPage,
         totalListed,
         hasNexPage,
-      }
-    }
+      },
+    };
   });
 
   //listar por id - retornar todos os dados
@@ -56,8 +61,8 @@ async function playerRoutes(server: FastifyInstance) {
         id,
       },
       include: {
-        skills: true
-      }
+        skills: true,
+      },
     });
 
     return player;
@@ -76,12 +81,12 @@ async function playerRoutes(server: FastifyInstance) {
             strength: skills.strength,
             speed: skills.speed,
             driblle: skills.driblle,
-          }
-        }
+          },
+        },
       },
       include: {
-        skills: true
-      }
+        skills: true,
+      },
     });
 
     return player;
@@ -101,11 +106,11 @@ async function playerRoutes(server: FastifyInstance) {
         nickname,
         skills: {
           create: skills,
-        }
+        },
       },
       include: {
-        skills: true
-      }
+        skills: true,
+      },
     });
 
     return player;
