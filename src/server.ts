@@ -1,9 +1,9 @@
 import Fastify from 'fastify';
-import playerRoutes from './routes/playerRoutes.js';
+import playersRoutes from './routes/playersRoutes.js';
 
 const server = Fastify();
 
-server.register(playerRoutes);
+server.register(playersRoutes);
 
 const start = async () => {
   try {
