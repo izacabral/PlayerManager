@@ -13,7 +13,7 @@ model Player {
   nickname  String?
   createdAt DateTime @default(now())
 
-  Skills   Skills @relation(fields: [skillsId], references: [id])
+  skills   Skills @relation(fields: [skillsId], references: [id])
   skillsId String @unique
 }
 

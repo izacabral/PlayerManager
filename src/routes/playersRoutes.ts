@@ -32,13 +32,23 @@ async function playerRoutes(server: FastifyInstance) {
 
   //criar
   server.post('/players', async (req: FastifyRequest, res: FastifyReply) => {
-    const { name, nickname } = playerSchema.parse(req.body);
+    const { name, nickname, skills } = playerSchema.parse(req.body);
 
     const player = await prisma.player.create({
       data: {
         name,
         nickname,
+        skills: {
+          create: {
+            strength: skills.strength,
+            speed: skills.speed,
+            driblle: skills.driblle,
+          }
+        }
       },
+      include: {
+        skills: true
+      }
     });
 
     return player;
@@ -47,7 +57,7 @@ async function playerRoutes(server: FastifyInstance) {
   //editar
   server.put('/players/:id', async (req: FastifyRequest, res: FastifyReply) => {
     const { id } = playerIdSchema.parse(req.params);
-    const { name, nickname } = playerSchema.parse(req.body);
+    const { name, nickname, skills } = playerSchema.parse(req.body);
 
     const player = await prisma.player.update({
       where: {
@@ -56,6 +66,13 @@ async function playerRoutes(server: FastifyInstance) {
       data: {
         name,
         nickname,
+        skills: {
+          create: {
+            strength: skills.strength,
+            speed: skills.speed,
+            driblle: skills.driblle,
+          }
+        }
       },
     });
 
