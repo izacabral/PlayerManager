@@ -54,7 +54,7 @@ DELETE /players/:id -> Delete a player.
 ```
 
 ## 📜 Documentation
-I used Swagger to document the API endpoints. You can access the documentation locally once the server is running at at: <a href="http://localhost:3030/docs" target="_blank">http://localhost:3030/docs</a>
+I used Swagger to document the API endpoints. You can access the documentation locally once the server is running at: <a href="http://localhost:3030/docs" target="_blank">http://localhost:3030/docs</a>
 
 
 ## 🗂️ Directory Structure
@@ -85,6 +85,7 @@ I used Swagger to document the API endpoints. You can access the documentation l
 ## 🔮 Future Improvements
 - **Player Ranking**: Implement a ranking feature based on player skills.
 - **Team Allocation**: Develop functionality to divide players into balanced teams.
+- **Enhanced Error Messages**: Improve error handling to provide more informative and user-friendly error messages, including specific details on validation failures and database issues.
 
 
 
