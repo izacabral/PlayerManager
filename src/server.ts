@@ -14,7 +14,7 @@ server.register(playersRoutes);
 
 const start = async () => {
   try {
-    await server.listen({ port: 3030 });
+    await server.listen({ port: 3030, host:"0.0.0.0"});
     console.log('Server running on http://localhost:3030');
     console.log('Documentation on http://localhost:3030/docs');
   } catch (error) {

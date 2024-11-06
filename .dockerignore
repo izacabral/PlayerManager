@@ -1,0 +1,29 @@
+# Ignorar dependências locais
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Ignorar configurações do ambiente local
+.env
+.env.local
+
+# Ignorar arquivos e pastas específicas do projeto
+.git
+.gitignore
+.dockerignore
+Dockerfile
+docker-compose.yml
+docker-compose.override.yml
+Makefile
+
+# Ignorar arquivos de configuração e cache do editor
+.vscode
+
+
+# Ignorar configurações do ESLint e Prettier
+.eslintrc
+.eslintignore
+.prettierrc
+.prettierignore
+*.config.js
+eslint.config.*
