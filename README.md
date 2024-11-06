@@ -37,6 +37,14 @@ git clone https://github.com/izacabral/PlayerManager.git
 cd PlayerManager
 ```
 
+- In the root directory,create a `.env` file as following example:
+```bash
+DB_USER="player_manager_user"
+DB_PASSWORD="dev12345"
+DB_NAME="player_manager_db"
+DB_PORT=5433
+```
+
 ```bash
 make start
 ```
@@ -81,6 +89,37 @@ I used Swagger to document the API endpoints. You can access the documentation l
 └── tsconfig.json
 
 ```
+## 🛠️ Additional Make Commands
+You can use the following `make` commands to manage the Docker containers, images, and volumes for the application:
+
+- Build the application and database containers:
+  ```bash
+  make build
+  ```
+- Start the containers:
+  ```bash
+  make up
+  ```
+- Stop the containers:
+  ```bash
+  make down
+  ```
+- Clean volumes and images (removes database data and all images):
+  ```bash
+  make fclean
+  ```
+- Clean only volumes (preserves images):
+  ```bash
+  make clean
+  ```
+- View logs:
+  ```bash
+  make logs
+  ```
+- Restart the containers:
+  ```bash
+  make restart
+  ```
 
 ## 🔮 Future Improvements
 - **Player Ranking**: Implement a ranking feature based on player skills.
