@@ -5,7 +5,7 @@
 <br />
 
 <div align="center">
-  <sub>Created by <a href="https://www.linkedin.com/in/izacabral/">Izabele Cabral</a>.</sub>
+  <sub>Created by <a href="https://www.linkedin.com/in/izacabral/" target="_blank">Izabele Cabral</a>.</sub>
 </div>
 
 <br />
@@ -41,7 +41,7 @@ cd PlayerManager
 make start
 ```
 
-The API will be responding on port 3030 at: <a href="http://localhost:3030">http://localhost:3030</a>
+The API will be responding on port 3030 at: <a href="http://localhost:3030" target="_blank">http://localhost:3030</a>
 
 ## 📜 API Endpoints
 
@@ -54,7 +54,7 @@ DELETE /players/:id -> Delete a player.
 ```
 
 ## 📜 Documentation
-I used Swagger to document the API endpoints. You can access the documentation locally once the server is running at at: <a href="http://localhost:3030/docs">http://localhost:3030/docs</a>
+I used Swagger to document the API endpoints. You can access the documentation locally once the server is running at at: <a href="http://localhost:3030/docs" target="_blank">http://localhost:3030/docs</a>
 
 
 ## 🗂️ Directory Structure
