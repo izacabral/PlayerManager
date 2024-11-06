@@ -33,8 +33,8 @@ export const getPaginatedPlayers = async (page: number, perPage: number, search?
       orderBy: { createdAt: 'desc' },
     });
 
-    const totalListed = players.length;
-    const hasNexPage = totalListed > perPage;
+    const totalListed = players.length > perPage ? perPage: players.length;
+    const hasNexPage = players.length > perPage;
 
     return {
       players: players.slice(0, perPage),
