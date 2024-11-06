@@ -9,6 +9,8 @@ export const playerSchema = z.object({
   skills: skillsSchema,
 });
 
-export const playerIdSchema = playerSchema.extend({id: z.string().uuid()}).pick({ id: true });
+export const playerIdSchema = playerSchema
+  .extend({ id: z.string().uuid() })
+  .pick({ id: true });
 
 export type PlayerType = z.infer<typeof playerSchema>;

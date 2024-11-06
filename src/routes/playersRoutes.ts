@@ -6,7 +6,7 @@ async function playerRoutes(server: FastifyInstance) {
 
   server.get('/players/:id', playerController.getPlayerById);
 
-  server.post('/players', playerController.createPlayer );
+  server.post('/players', playerController.createPlayer);
 
   server.put('/players/:id', playerController.updatePlayer);
 
