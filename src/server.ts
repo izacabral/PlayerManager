@@ -16,7 +16,7 @@ const start = async () => {
   try {
     await server.listen({ port: 3030 });
     console.log('Server running on http://localhost:3030');
-    console.log( "Documentation on http://localhost:3030/docs")
+    console.log('Documentation on http://localhost:3030/docs');
   } catch (error) {
     server.log.error(error);
     process.exit(1);

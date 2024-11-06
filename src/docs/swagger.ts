@@ -1,8 +1,5 @@
-import swagger from '@fastify/swagger';
-import swaggerUI from '@fastify/swagger-ui';
-
 export const swaggerOptions = {
-  swagger: {
+  openapi: {
     info: {
       title: 'PlayerManager API',
       description: 'API para gerenciar jogadores e habilidades',
@@ -23,7 +20,7 @@ export const swaggerUIOptions = {
   transformStaticCSP: (header: string) => header,
 
   uiConfig: {
-    docExpansion: 'full' as 'full',
+    docExpansion: 'full' as const,
     deepLinking: true,
   },
 };
